@@ -350,7 +350,7 @@ $dados_json = json_encode($dados);
                     </div>
 
                     <div class="">
-                      <button type="button" id="btn_buy" class="btn btn-primary btn-lg" onclick="comprar()">Comprar</button>
+                      <button type="button" id="btn_buy" class="btn btn-primary btn-lg">Comprar</button>
 
                     </div>
 
@@ -393,8 +393,28 @@ $dados_json = json_encode($dados);
     function comprar() {
       console.log("id: " + <?php echo  $id ?>);
       console.log(dados);
+
+      $.ajax({
+        method: 'post',
+        url: 'pagamento.php',
+        data:{ 
+          dados,
+          etapa: 'checkout',
+          id: <?php echo  $id ?>
+        },
+        success: (codigo) =>{
+          console.log(codigo)
+          if (codigo)
+            chamar_lightbox(codigo)
+          else
+            alert("Não foi possível realizar a compra!")
+        }
+      })
     }
 
+    function chamar_lightbox(codigo){
+
+    }
 
     var settings = {
       "url": "{{url}}/oauth2/application",

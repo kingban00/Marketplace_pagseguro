@@ -24,6 +24,7 @@ define("ID_GATEWAY", 8);
 define("URL_BASE_PAGSEGURO", "https://pagseguro.uol.com.br");
 define("URL_STC_PAGSEGURO", "https://stc.pagseguro.uol.com.br");
 define("EMAIL_PAGSEGURO", "yann.gabriel1@hotmail.com");
+define("PAGSEGURO_POSTBACK", "https://webhook.site/0f04d4db-78df-45a9-9161-bee86b9615ad");
 
 $sandbox = true;
 
